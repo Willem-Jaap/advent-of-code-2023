@@ -1,0 +1,11 @@
+{
+    "name": "advent-of-code-2023",
+    "version": "1.0.0",
+    "type": "module",
+    "scripts": {
+        "dev": "deno run --allow-read --allow-write --watch --"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC"
+}
