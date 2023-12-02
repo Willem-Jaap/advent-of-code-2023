@@ -6,8 +6,8 @@ console.log(lines);
 type Color = "red" | "green" | "blue";
 type GameTotals = Record<Color, number>;
 
+// Part 1
 const validGames: number[] = [];
-
 lines.forEach((line: string) => {
     const [name, content] = line.split(": ");
     const [, id] = name.split(" ");
@@ -51,6 +51,35 @@ lines.forEach((line: string) => {
     }
 });
 
-const total = validGames.reduce((acc: number, id: number) => acc + id);
-console.log(total);
+const totalValidGames = validGames.reduce((acc: number, id: number) => acc + id);
+console.log(totalValidGames);
+
+// Part 2
+let powerSum = 0;
+
+lines.forEach((line: string) => {
+    const [name, content] = line.split(": ");
+    const sets = content.split("; ");
+
+    const minimums: GameTotals = {
+        red: 0,
+        green: 0,
+        blue: 0,
+    };
+
+    sets.forEach((set: string) => {
+        const cubes = set.split(", ");
+
+        cubes.forEach((cube: string) => {
+            const [amount, color] = cube.split(" ");
+
+            if (minimums[color] < amount) minimums[color] = Number(amount);
+        });
+    });
+
+    powerSum += Object.values(minimums).reduce((acc: number, amount: number) => acc * amount);
+});
+
+console.log(powerSum);
+
 export {};
