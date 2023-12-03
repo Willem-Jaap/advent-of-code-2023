@@ -3,7 +3,8 @@
     "version": "1.0.0",
     "type": "module",
     "scripts": {
-        "dev": "deno run --allow-read --allow-write --watch --"
+        "dev": "deno run --allow-read --allow-write --watch --",
+        "setup-day": "deno run --allow-read --allow-write setup-day.ts"
     },
     "keywords": [],
     "author": "",
